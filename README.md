@@ -4,7 +4,7 @@
 ![Language](https://img.shields.io/badge/C%23-12-purple)
 ![License](https://img.shields.io/github/license/ReyGall/Magic-Adventure?color=blue)
 ![Status](https://img.shields.io/badge/status-in%20development-orange)
-![Genre](https://img.shields.io/badge/genre-Action%20RPG-red)
+![Genre](https://img.shields.io/badge/genre-Action%20RPG-white)
 ![Graphics](https://img.shields.io/badge/style-Low--Poly-blueviolet)
 ![Stars](https://img.shields.io/github/stars/ReyGall/Magic-Adventure?color=gold)
 ![Forks](https://img.shields.io/github/forks/ReyGall/Magic-Adventure?color=lightgrey)
