@@ -1,7 +1,7 @@
 # Magic Adventure
 
 ![Engine](https://img.shields.io/badge/Unity-6-purple)
-![Language](https://img.shields.io/badge/C%23-12-purple)
+![Language](https://img.shields.io/badge/C%23-12-yellow)
 ![License](https://img.shields.io/github/license/ReyGall/Magic-Adventure?color=blue)
 ![Status](https://img.shields.io/badge/status-in%20development-orange)
 ![Genre](https://img.shields.io/badge/genre-Action%20RPG-white)
