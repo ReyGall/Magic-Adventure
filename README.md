@@ -46,23 +46,6 @@ The current prototype features a low-poly 3D environment, a placeholder mage cha
 
 The project is currently in its early prototype stage.
 
-### Implemented
-
-* Low-poly 3D environment
-* Basic mage character
-* Staff placeholder
-* Initial Unity project structure
-
-### In Development
-
-* Third-person camera
-* Character movement
-* Target lock system
-* Mana system
-* First experimental spell
-* Modular spell architecture
-* Combat prototype
-
 ## Development Roadmap
 
 ```text
