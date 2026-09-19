@@ -1,10 +1,10 @@
 # Magic Adventure
 
 ![Engine](https://img.shields.io/badge/Unity-6-purple)
-![Language](https://img.shields.io/badge/C%23-12-purple)
+![Language](https://img.shields.io/badge/C%23-12-yellow)
 ![License](https://img.shields.io/github/license/ReyGall/Magic-Adventure?color=blue)
 ![Status](https://img.shields.io/badge/status-in%20development-orange)
-![Genre](https://img.shields.io/badge/genre-Action%20RPG-red)
+![Genre](https://img.shields.io/badge/genre-Action%20RPG-white)
 ![Graphics](https://img.shields.io/badge/style-Low--Poly-blueviolet)
 ![Stars](https://img.shields.io/github/stars/ReyGall/Magic-Adventure?color=gold)
 ![Forks](https://img.shields.io/github/forks/ReyGall/Magic-Adventure?color=lightgrey)
@@ -45,23 +45,6 @@ The current prototype features a low-poly 3D environment, a placeholder mage cha
 ## Current Prototype
 
 The project is currently in its early prototype stage.
-
-### Implemented
-
-* Low-poly 3D environment
-* Basic mage character
-* Staff placeholder
-* Initial Unity project structure
-
-### In Development
-
-* Third-person camera
-* Character movement
-* Target lock system
-* Mana system
-* First experimental spell
-* Modular spell architecture
-* Combat prototype
 
 ## Development Roadmap
 
