@@ -72,7 +72,7 @@ The project is currently in its early prototype stage.
 [✓] Third-person camera
 [✓] Character controller
 [✓] Lock-on system
-[ ] Mana system
+[✓] Mana system
 [ ] First spell
 [ ] Modular spell system
 [ ] Physical magic interactions
