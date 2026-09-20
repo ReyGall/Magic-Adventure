@@ -56,8 +56,8 @@ The project is currently in its early prototype stage.
 [✓] Character controller
 [✓] Lock-on system
 [✓] Mana system
-[ ] First spell
-[ ] Modular spell system
+[✓] First spell
+[✓] Modular spell system
 [ ] Physical magic interactions
 [ ] Basic enemy
 [ ] Combat loop

@@ -1,6 +1,6 @@
 using UnityEngine;
 
-namespace MyGame.ManaControl
+namespace MyGame.manaControl
 
 {
     public class Mana : MonoBehaviour

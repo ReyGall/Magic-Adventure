@@ -1,6 +1,6 @@
 using UnityEngine;
 using MyGame.manaControl;
-namespace MyGame.SpellBase
+namespace MyGame.SpellsCore
 {
     
     public class SpellBase : MonoBehaviour
@@ -16,16 +16,16 @@ namespace MyGame.SpellBase
             _manaRef = GetComponent<Mana>();
         }
     
-    public bool SpellCheck(bool spellCast)
+    public bool SpellCheck()
         {
             _spellCast = false;
             if (_manaCost <= _manaRef.CheckMana())
             {
                 _manaRef.ManaDrain(_manaCost);
-                spellCast = true;
+                _spellCast = true;
             }
 
-            return spellCast;
+            return _spellCast;
         }
 
     }
