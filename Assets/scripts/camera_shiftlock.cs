@@ -1,5 +1,5 @@
-using UnityEngine;
 using StarterAssets;
+using UnityEngine;
 
 namespace MyGame.CameraShiftLock
 {
@@ -16,7 +16,8 @@ namespace MyGame.CameraShiftLock
 
             // Try to find the StarterAssetsInputs on the same object first, then parent, then anywhere in scene.
             _input = GetComponent<StarterAssetsInputs>();
-            if (_input == null) _input = GetComponentInParent<StarterAssetsInputs>();
+            if (_input == null)
+                _input = GetComponentInParent<StarterAssetsInputs>();
             if (_input == null)
             {
 #if UNITY_2023_1_OR_NEWER
@@ -30,7 +31,10 @@ namespace MyGame.CameraShiftLock
         void Update()
         {
 #if ENABLE_INPUT_SYSTEM
-            if (UnityEngine.InputSystem.Keyboard.current != null && UnityEngine.InputSystem.Keyboard.current.leftAltKey.wasPressedThisFrame)
+            if (
+                UnityEngine.InputSystem.Keyboard.current != null
+                && UnityEngine.InputSystem.Keyboard.current.leftAltKey.wasPressedThisFrame
+            )
             {
                 isShiftLocked = !isShiftLocked;
             }
@@ -44,7 +48,8 @@ namespace MyGame.CameraShiftLock
             if (isShiftLocked != _lastLockState)
             {
                 _lastLockState = isShiftLocked;
-                if (_input != null)
+
+                if (_input != null)
                 {
                     _input.SetCursorState(isShiftLocked);
                     // Clear look once when toggling to avoid residual rotation.

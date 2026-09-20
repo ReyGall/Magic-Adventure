@@ -1,0 +1,26 @@
+name: CSharpier Check
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  csharpier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x' # Укажите версию .NET под ваш проект
+
+      - name: Restore local tools
+        run: dotnet tool restore
+
+      - name: Run CSharpier check
+        run: dotnet csharpier check .

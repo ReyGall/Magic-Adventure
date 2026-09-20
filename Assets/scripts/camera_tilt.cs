@@ -9,13 +9,17 @@ namespace MyGame.CameraControl
 
         void Update()
         {
-    
             float Target_Angle = -Max_Camera_Angle * Input.GetAxis("Horizontal");
-            float New_Camera_Z = Mathf.LerpAngle(transform.localEulerAngles.z, Target_Angle, Time.deltaTime * Camera_Roll_Speed);
-            transform.localRotation = Quaternion.Euler(transform.localEulerAngles.x, transform.localEulerAngles.y, New_Camera_Z);
-
+            float New_Camera_Z = Mathf.LerpAngle(
+                transform.localEulerAngles.z,
+                Target_Angle,
+                Time.deltaTime * Camera_Roll_Speed
+            );
+            transform.localRotation = Quaternion.Euler(
+                transform.localEulerAngles.x,
+                transform.localEulerAngles.y,
+                New_Camera_Z
+            );
         }
-
     }
-
 }

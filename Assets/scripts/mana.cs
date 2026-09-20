@@ -1,11 +1,9 @@
 using UnityEngine;
 
 namespace MyGame.manaControl
-
 {
     public class Mana : MonoBehaviour
     {
-        
         private float _mana = 100f;
         private float _maxMana = 100f;
         private bool _cast = false;
@@ -18,14 +16,12 @@ namespace MyGame.manaControl
 
         public bool ManaDrain(float amount)
         {
-
             _cast = false;
 
             if (_mana >= amount)
             {
                 _mana -= amount;
                 _cast = true;
-                
             }
 
             return _cast;
@@ -33,9 +29,7 @@ namespace MyGame.manaControl
 
         public float CheckMana()
         {
-            
             return _mana;
-        
         }
 
         public float ManaRegen()
@@ -50,9 +44,6 @@ namespace MyGame.manaControl
             }
 
             return _mana;
-
         }
-
     }
-
 }
