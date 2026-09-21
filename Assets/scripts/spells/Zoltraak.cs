@@ -72,7 +72,6 @@ namespace MyGame.SpellZoltraak
                             _enemyLayer
                         )
                     )
-                        Debug.Log("Попали в: " + hit.collider.name);
                     {
                         if (hit.collider != null)
                         {
