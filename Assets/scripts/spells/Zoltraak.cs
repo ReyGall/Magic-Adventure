@@ -1,5 +1,6 @@
 using MyGame.manaControl;
 using MyGame.SpellsCore;
+using MyGame.Damage_interface;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -13,17 +14,24 @@ namespace MyGame.SpellZoltraak
         [SerializeField]
         private Transform _spawnPoint;
 
+        [SerializeField] 
+        private LayerMask _enemyLayer;
+
         [SerializeField]
         private GameObject _vfxPrefab2;
 
         [SerializeField]
         private Transform _spawnPoint2;
 
+        private float _radius = 0.3f;
+        private float _defaultDistance = 10f;
+
         protected override void Awake()
         {
             base.Awake();
             _manaCost = 30f;
             _damage = 50f;
+            
         }
 
         private void Update()
@@ -48,6 +56,22 @@ namespace MyGame.SpellZoltraak
                         spawnPosition2,
                         spawnRotation2
                     );
+                    RaycastHit hit;
+                    Debug.DrawRay(_spawnPoint2.position, -_spawnPoint2.right * _defaultDistance, Color.red, 1f);
+                    if (Physics.SphereCast (_spawnPoint2.position, _radius, _spawnPoint2.forward, out hit, _defaultDistance, _enemyLayer))
+                    Debug.Log("Попали в: " + hit.collider.name);
+                    {
+                        if (hit.collider != null)
+                        {
+                            if (hit.collider.TryGetComponent<IDamageable>(out var damageable))
+                            {
+                            damageable.TakeDamage(_damage);
+                            }
+                            
+                        }
+
+
+                    }
                     Destroy(vfxInstance2, 3f);
                 }
             }

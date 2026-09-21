@@ -58,8 +58,7 @@ The project is currently in its early prototype stage.
 [✓] Mana system
 [✓] First spell
 [✓] Modular spell system
-[ ] Physical magic interactions
-[ ] Basic enemy
+[✓] Basic enemy
 [ ] Combat loop
 [ ] Prototype arena
 [ ] Visual and audio polish
