@@ -23,7 +23,7 @@ namespace MyGame.SpellZoltraak
         [SerializeField]
         private Transform _spawnPoint2;
 
-        private float _radius = 0.3f;
+        private float _radius = 0.6f;
         private float _defaultDistance = 10f;
 
         protected override void Awake()
