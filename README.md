@@ -83,7 +83,7 @@ The primary goal is not to create a large amount of content, but to build a soli
 
 ## License
 
-[Apache License 2.0](LICENSE)
+[CC BY-NC-SA 4.0](LICENSE)
 
 ## Author
 
