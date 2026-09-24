@@ -16,9 +16,15 @@ namespace MyGame.SpellShield
 
         private GameObject _activeShieldInstance;
 
+        private float _shieldCooldown = 1f;
+
+        private float _shieldDestroyedCooldown = 8f;
+
         private float _shieldManaMultiplier = 0.4f;
 
         public float CurrentHealth => _manaRef != null ? _manaRef.CheckMana() : 0f;
+
+        private float _nextShieldTime;
 
         protected override void Awake()
         {
@@ -30,7 +36,7 @@ namespace MyGame.SpellShield
         {
             if (Keyboard.current.qKey.isPressed)
             {
-                if (_activeShieldInstance == null)
+                if (_activeShieldInstance == null && Time.time >= _nextShieldTime)
                 {
                     if (SpellCheck())
                     {
@@ -43,6 +49,7 @@ namespace MyGame.SpellShield
                     {
                         Destroy(_activeShieldInstance);
                         _activeShieldInstance = null;
+                        _nextShieldTime = Time.time + _shieldCooldown;
                     }
                 }
             }
@@ -52,6 +59,7 @@ namespace MyGame.SpellShield
                 {
                     Destroy(_activeShieldInstance);
                     _activeShieldInstance = null;
+                    _nextShieldTime = Time.time + _shieldCooldown;
                 }
             }
         }
@@ -74,7 +82,6 @@ namespace MyGame.SpellShield
                     _shieldSpawnPoint.rotation,
                     _shieldSpawnPoint
                 );
-                Debug.Log("Щит активирован!");
             }
         }
 
@@ -88,6 +95,7 @@ namespace MyGame.SpellShield
                 {
                     Destroy(_activeShieldInstance);
                     _activeShieldInstance = null;
+                    _nextShieldTime = Time.time + _shieldDestroyedCooldown;
                 }
             }
         }
