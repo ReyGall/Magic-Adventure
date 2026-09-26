@@ -59,6 +59,7 @@ The project is currently in its early prototype stage.
 [✓] Modular spell system
 [✓] Basic enemy
 [✓] Modular input system
+[ ] Spell Modifiers
 [ ] GUI
 [ ] Combat loop
 [ ] Prototype arena
