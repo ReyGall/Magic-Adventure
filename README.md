@@ -59,7 +59,7 @@ The project is currently in its early prototype stage.
 [✓] First spell
 [✓] Modular spell system
 [✓] Basic enemy
-[ ] Modular input system
+[✓] Modular input system
 [ ] GUI
 [ ] Combat loop
 [ ] Prototype arena

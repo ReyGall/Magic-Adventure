@@ -14496,6 +14496,7 @@ GameObject:
   - component: {fileID: 8896015678357335244}
   - component: {fileID: 8896015678357335245}
   - component: {fileID: 8896015678357335246}
+  - component: {fileID: 8896015678357335247}
   m_Layer: 0
   m_Name: player
   m_TagString: Untagged
@@ -14595,6 +14596,27 @@ MonoBehaviour:
   _spellCast: 0
   _shieldVfxPrefab: {fileID: 1604815591}
   _shieldSpawnPoint: {fileID: 1303613425096172439}
+--- !u!114 &8896015678357335247
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8896015678357335240}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2d7d32ee7982a4145a2b4e3b7b617de7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::Mygame.InputManager.InputManager
+  abilitySlots:
+  - actionName: Ability1
+    spellComponent: {fileID: 8896015678357335241}
+  - actionName: Ability2
+    spellComponent: {fileID: 8896015678357335246}
+  - actionName: 
+    spellComponent: {fileID: 0}
+  - actionName: 
+    spellComponent: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
