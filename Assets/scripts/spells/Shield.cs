@@ -32,35 +32,44 @@ namespace MyGame.SpellShield
             _manaCost = 10f;
         }
 
-        private void Update()
+        public override void Cast()
         {
-            if (Keyboard.current.qKey.isPressed)
+            if (_activeShieldInstance == null && Time.time >= _nextShieldTime)
             {
-                if (_activeShieldInstance == null && Time.time >= _nextShieldTime)
+                if (SpellCheck())
                 {
-                    if (SpellCheck())
-                    {
-                        ActivateShield();
-                    }
-                }
-                else
-                {
-                    if (!_manaRef.ManaDrain(10f * Time.deltaTime))
-                    {
-                        Destroy(_activeShieldInstance);
-                        _activeShieldInstance = null;
-                        _nextShieldTime = Time.time + _shieldCooldown;
-                    }
+                    ActivateShield();
                 }
             }
-            else
+        }
+
+        public override void HoldCast()
+        {
+            if (_activeShieldInstance != null)
             {
-                if (_activeShieldInstance != null)
+                if (!_manaRef.ManaDrain(10f * Time.deltaTime))
                 {
                     Destroy(_activeShieldInstance);
                     _activeShieldInstance = null;
                     _nextShieldTime = Time.time + _shieldCooldown;
                 }
+            }
+            else if (Time.time >= _nextShieldTime)
+            {
+                if (SpellCheck())
+                {
+                    ActivateShield();
+                }
+            }
+        }
+
+        public override void StopCast()
+        {
+            if (_activeShieldInstance != null)
+            {
+                Destroy(_activeShieldInstance);
+                _activeShieldInstance = null;
+                _nextShieldTime = Time.time + _shieldCooldown;
             }
         }
 

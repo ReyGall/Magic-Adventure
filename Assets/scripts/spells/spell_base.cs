@@ -31,5 +31,11 @@ namespace MyGame.SpellsCore
 
             return _spellCast;
         }
+
+        public virtual void Cast() { }
+
+        public virtual void HoldCast() { }
+
+        public virtual void StopCast() { }
     }
 }
