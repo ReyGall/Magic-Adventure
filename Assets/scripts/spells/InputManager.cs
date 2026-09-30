@@ -40,31 +40,34 @@ namespace Mygame.InputManager
         {
             foreach (var slot in abilitySlots)
             {
-                if (string.IsNullOrEmpty(slot.actionName)) continue;
-                if (slot.spellComponent == null) continue;
+                if (string.IsNullOrEmpty(slot.actionName))
+                    continue;
+                if (slot.spellComponent == null)
+                    continue;
 
                 var action = _inputActions.FindAction(slot.actionName);
-                if (action == null) continue;
+                if (action == null)
+                    continue;
 
                 // 1. if key pressed
                 if (action.WasPressedThisFrame())
                 {
-                    slot.spellComponent.Cast();         // for instant
-                    slot.spellComponent.StartCharge();  // for charge
+                    slot.spellComponent.Cast(); // for instant
+                    slot.spellComponent.StartCharge(); // for charge
                 }
 
                 // 2. if key being holded
                 if (action.IsPressed())
                 {
-                    slot.spellComponent.HoldCharge();   // for charging spells
-                    slot.spellComponent.HoldCast();     // for holding spells
+                    slot.spellComponent.HoldCharge(); // for charging spells
+                    slot.spellComponent.HoldCast(); // for holding spells
                 }
 
                 // 3. if key released
                 if (action.WasReleasedThisFrame())
                 {
-                    slot.spellComponent.ReleaseCharge();// launch charged spell
-                    slot.spellComponent.StopCast();     // turning off holding spell
+                    slot.spellComponent.ReleaseCharge(); // launch charged spell
+                    slot.spellComponent.StopCast(); // turning off holding spell
                 }
             }
         }

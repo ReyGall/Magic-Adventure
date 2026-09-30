@@ -24,26 +24,40 @@ namespace MyGame.SpellZoltraak
 
         [Header("Charge Settings")]
         private float _currentChargeTime = 0f;
-        [SerializeField] private float _maxChargeTime = 3f; // max charge time
-        [SerializeField] private float _manaDrainPerSecond = 15f; // holding cost
+
+        [SerializeField]
+        private float _maxChargeTime = 3f; // max charge time
+
+        [SerializeField]
+        private float _manaDrainPerSecond = 15f; // holding cost
 
         [Header("Damage & Radius Scaling")]
-        [SerializeField] private float _minDamage = 30f;
-        [SerializeField] private float _maxDamage = 100f;
-        [SerializeField] private float _minRadius = 0.6f;
-        [SerializeField] private float _maxRadius = 2.0f;
+        [SerializeField]
+        private float _minDamage = 30f;
+
+        [SerializeField]
+        private float _maxDamage = 100f;
+
+        [SerializeField]
+        private float _minRadius = 0.6f;
+
+        [SerializeField]
+        private float _maxRadius = 2.0f;
 
         [Header("VFX Scale Scaling")]
-        [SerializeField] private Vector3 _minVfxScale = new Vector3(1f, 1f, 1f);
-        [SerializeField] private Vector3 _maxVfxScale = new Vector3(2.5f, 2.5f, 2.5f);
+        [SerializeField]
+        private Vector3 _minVfxScale = new Vector3(1f, 1f, 1f);
+
+        [SerializeField]
+        private Vector3 _maxVfxScale = new Vector3(2.5f, 2.5f, 2.5f);
 
         private float _defaultDistance = 10f;
-        private bool _isCharging = false; 
+        private bool _isCharging = false;
 
         protected override void Awake()
         {
             base.Awake();
-            _manaCost = 30f; 
+            _manaCost = 30f;
             _damage = _minDamage;
         }
 
@@ -58,7 +72,8 @@ namespace MyGame.SpellZoltraak
 
         public override void HoldCharge()
         {
-            if (!_isCharging) return;
+            if (!_isCharging)
+                return;
 
             if (_currentChargeTime < _maxChargeTime)
             {
@@ -80,7 +95,8 @@ namespace MyGame.SpellZoltraak
 
         public override void ReleaseCharge()
         {
-            if (!_isCharging) return;
+            if (!_isCharging)
+                return;
             ExecuteRelease(false);
         }
 
@@ -103,18 +119,20 @@ namespace MyGame.SpellZoltraak
         {
             // first vfx
             Vector3 localOffset = new Vector3(0f, 0f, 0f);
-            Vector3 spawnPosition = _spawnPoint.position + _spawnPoint.TransformDirection(localOffset);
+            Vector3 spawnPosition =
+                _spawnPoint.position + _spawnPoint.TransformDirection(localOffset);
             Quaternion spawnRotation = _spawnPoint.rotation * Quaternion.Euler(0f, 0f, 0f);
             GameObject vfxInstance = Instantiate(_vfxPrefab, spawnPosition, spawnRotation);
-            vfxInstance.transform.localScale = vfxScale; 
+            vfxInstance.transform.localScale = vfxScale;
             Destroy(vfxInstance, 3f);
 
             // second vfx
             Vector3 localOffset2 = new Vector3(0f, 1f, 1.5f);
-            Vector3 spawnPosition2 = _spawnPoint2.position + _spawnPoint2.TransformDirection(localOffset2);
+            Vector3 spawnPosition2 =
+                _spawnPoint2.position + _spawnPoint2.TransformDirection(localOffset2);
             Quaternion spawnRotation2 = _spawnPoint2.rotation * Quaternion.Euler(0f, 270f, 0f);
             GameObject vfxInstance2 = Instantiate(_vfxPrefab2, spawnPosition2, spawnRotation2);
-            vfxInstance2.transform.localScale = vfxScale; 
+            vfxInstance2.transform.localScale = vfxScale;
             Destroy(vfxInstance2, 3f);
 
             // raycast
