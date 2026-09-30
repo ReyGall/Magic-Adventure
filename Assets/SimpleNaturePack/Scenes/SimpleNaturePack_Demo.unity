@@ -14526,6 +14526,14 @@ MonoBehaviour:
     m_Bits: 64
   _vfxPrefab2: {fileID: 1535589594}
   _spawnPoint2: {fileID: 1303613425096172439}
+  _maxChargeTime: 3
+  _manaDrainPerSecond: 15
+  _minDamage: 30
+  _maxDamage: 80
+  _minRadius: 0.6
+  _maxRadius: 1.62
+  _minVfxScale: {x: 1, y: 1, z: 1}
+  _maxVfxScale: {x: 2.5, y: 2.5, z: 2.5}
 --- !u!114 &8896015678357335242
 MonoBehaviour:
   m_ObjectHideFlags: 0

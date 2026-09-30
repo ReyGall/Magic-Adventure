@@ -49,22 +49,25 @@ namespace Mygame.InputManager
                 if (action == null)
                     continue;
 
-                // 1. if just pressed in this frame
+                // 1. if key pressed
                 if (action.WasPressedThisFrame())
                 {
-                    slot.spellComponent.Cast();
+                    slot.spellComponent.Cast(); // for instant
+                    slot.spellComponent.StartCharge(); // for charge
                 }
 
-                // 2. if holds
+                // 2. if key being holded
                 if (action.IsPressed())
                 {
-                    slot.spellComponent.HoldCast();
+                    slot.spellComponent.HoldCharge(); // for charging spells
+                    slot.spellComponent.HoldCast(); // for holding spells
                 }
 
-                // 3. if not pressed
+                // 3. if key released
                 if (action.WasReleasedThisFrame())
                 {
-                    slot.spellComponent.StopCast();
+                    slot.spellComponent.ReleaseCharge(); // launch charged spell
+                    slot.spellComponent.StopCast(); // turning off holding spell
                 }
             }
         }
