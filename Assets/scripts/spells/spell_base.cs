@@ -37,5 +37,11 @@ namespace MyGame.SpellsCore
         public virtual void HoldCast() { }
 
         public virtual void StopCast() { }
+        
+        public virtual void StartCharge() { }
+
+        public virtual void HoldCharge() { }
+
+        public virtual void ReleaseCharge() { }
     }
 }
