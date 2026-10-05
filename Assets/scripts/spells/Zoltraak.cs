@@ -53,12 +53,25 @@ namespace MyGame.SpellZoltraak
 
         private float _defaultDistance = 10f;
         private bool _isCharging = false;
+        public bool IsCharging => _isCharging;
 
         protected override void Awake()
         {
             base.Awake();
             _manaCost = 30f;
             _damage = _minDamage;
+
+            if (_spawnPoint == null)
+            {
+                Transform found = transform.Find("PlayerArmature"); 
+                _spawnPoint = found != null ? found : transform; 
+            }
+
+            if (_spawnPoint2 == null)
+            {
+                Transform found = transform.Find("PlayerArmature");
+                _spawnPoint2 = found != null ? found : _spawnPoint; 
+            }
         }
 
         public override void StartCharge()
