@@ -63,14 +63,14 @@ namespace MyGame.SpellZoltraak
 
             if (_spawnPoint == null)
             {
-                Transform found = transform.Find("PlayerArmature"); 
-                _spawnPoint = found != null ? found : transform; 
+                Transform found = transform.Find("PlayerArmature");
+                _spawnPoint = found != null ? found : transform;
             }
 
             if (_spawnPoint2 == null)
             {
                 Transform found = transform.Find("PlayerArmature");
-                _spawnPoint2 = found != null ? found : _spawnPoint; 
+                _spawnPoint2 = found != null ? found : _spawnPoint;
             }
         }
 

@@ -1,7 +1,7 @@
-using UnityEngine;
-using UnityEngine.AI;
 using MyGame.SpellZoltraak;
 using StarterAssets;
+using UnityEngine;
+using UnityEngine.AI;
 
 namespace MyGame.EnemyLogic
 {
@@ -50,13 +50,20 @@ namespace MyGame.EnemyLogic
 
         private int _patrolIndex;
 
-        private enum AIState { Patrol, Chase, Attack }
+        private enum AIState
+        {
+            Patrol,
+            Chase,
+            Attack,
+        }
+
         private AIState _currentState;
         private AIState _previousState;
         private bool _isChargingSpell = false;
         private float _targetRotation = 0f;
         private float _rotationVelocity = 0f;
         private const float RotationSmoothTime = 0.12f;
+
         [SerializeField]
         private float _turnSpeed = 180f;
 
@@ -74,7 +81,6 @@ namespace MyGame.EnemyLogic
 
         private int _animIDSpeed;
 
-    
         private void Awake()
         {
             if (_agent == null)
@@ -170,7 +176,8 @@ namespace MyGame.EnemyLogic
         public void SetTarget(Transform target)
         {
             _playerTransform = target;
-            _playerController = target != null ? target.GetComponent<ThirdPersonController>() : null;
+            _playerController =
+                target != null ? target.GetComponent<ThirdPersonController>() : null;
         }
 
         private void Update()
@@ -356,7 +363,7 @@ namespace MyGame.EnemyLogic
                 "MoveSpeed",
                 "Movement",
                 "Velocity",
-                "MotionSpeed"
+                "MotionSpeed",
             };
 
             foreach (string candidate in candidateNames)
@@ -414,7 +421,10 @@ namespace MyGame.EnemyLogic
                     }
                     else
                     {
-                        moveAmount = _currentState == AIState.Patrol || _currentState == AIState.Chase ? 1f : 0f;
+                        moveAmount =
+                            _currentState == AIState.Patrol || _currentState == AIState.Chase
+                                ? 1f
+                                : 0f;
                     }
                 }
 
@@ -446,7 +456,5 @@ namespace MyGame.EnemyLogic
                 _isChargingSpell = false;
             }
         }
-
-
     }
 }
