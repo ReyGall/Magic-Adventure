@@ -16,7 +16,8 @@ namespace MyGame.damage
 
         public float CurrentHealth => health;
 
-        private string EntityName => string.IsNullOrEmpty(entityName) ? gameObject.name : entityName;
+        private string EntityName =>
+            string.IsNullOrEmpty(entityName) ? gameObject.name : entityName;
 
         public void TakeDamage(float amount)
         {
@@ -36,7 +37,5 @@ namespace MyGame.damage
         }
     }
 
-    public class Enemy : DamageManager
-    {
-    }
+    public class Enemy : DamageManager { }
 }
