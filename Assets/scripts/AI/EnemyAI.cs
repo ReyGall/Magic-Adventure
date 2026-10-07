@@ -297,6 +297,16 @@ namespace MyGame.EnemyLogic
                 return;
             }
 
+            if (_playerTransform == null)
+            {
+                Debug.LogWarning("[EnemyAI] Attack state reached but _playerTransform is null.");
+                return;
+            }
+
+            Debug.Log(
+                $"[EnemyAI] Attacking. Enemy={name}, Player={_playerTransform.name}, Distance={distance}"
+            );
+
             _agent.updateRotation = false;
             _agent.isStopped = true;
 
@@ -310,6 +320,7 @@ namespace MyGame.EnemyLogic
 
             if (!_isChargingSpell)
             {
+                Debug.Log("[EnemyAI] Starting Zoltraak charge");
                 _zoltraak.StartCharge();
                 _isChargingSpell = true;
             }
