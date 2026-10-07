@@ -1,0 +1,83 @@
+#HealthBar .unity-progress-bar__progress {
+    background-color: rgb(46, 204, 113);
+    border-radius: 6px;
+}
+
+#HealthBar .unity-progress-bar__background {
+    background-color: rgb(44, 62, 80);
+    border-radius: 6px;
+}
+
+#ManaBar .unity-progress-bar__progress {
+    background-color: rgb(62, 46, 204);
+    border-radius: 6px;
+}
+
+#ManaBar .unity-progress-bar__background {
+    background-color: rgb(44, 62, 80);
+    border-radius: 6px;
+}
+
+.hud-bar-row {
+    position: relative;
+    width: 100%;
+    height: 24px;
+}
+
+.hud-bar {
+    width: 100%;
+    height: 24px;
+}
+
+.bar-text {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    -unity-text-align: middle-center;
+    color: rgb(255, 255, 255);
+    -unity-font-style: bold;
+    font-size: 12px;
+}
+
+.status-stack {
+    position: absolute;
+    left: 50%;
+    top: 52%;
+    width: 320px;
+    margin-left: -160px;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+}
+
+.status-entry {
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    min-width: 150px;
+    max-width: 300px;
+    padding: 6px 12px;
+    border-radius: 10px;
+    background-color: rgba(10, 12, 18, 0.72);
+    border-width: 1px;
+    border-color: rgba(255, 255, 255, 0.25);
+}
+
+.status-icon {
+    width: 22px;
+    -unity-text-align: middle-center;
+    color: rgb(255, 255, 255);
+    font-size: 18px;
+    -unity-font-style: bold;
+}
+
+.status-text {
+    color: rgb(255, 255, 255);
+    font-size: 12px;
+    -unity-font-style: bold;
+    white-space: normal;
+    text-overflow: ellipsis;
+}

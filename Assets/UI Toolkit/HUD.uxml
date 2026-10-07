@@ -1,0 +1,18 @@
+<ui:UXML xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ui="UnityEngine.UIElements" xmlns:uie="UnityEditor.UIElements" noNamespaceSchemaLocation="../UIElementsSchema/UIElements.xsd" editor-extension-mode="False">
+    <Style src="project://database/Assets/Ui%20Toolkit/MainStyle.uss?fileID=7433441132597879392&amp;guid=fec39b3c7a2834d4a9a00cef6573de59&amp;type=3#MainStyle"/>
+    <ui:VisualElement name="HUDRoot" style="position: absolute; left: 0; top: 0; right: 0; bottom: 0;">
+        <ui:VisualElement name="BarsContainer" style="position: absolute; left: 20px; top: 20px; width: 360px; flex-direction: column; gap: 12px;">
+            <ui:VisualElement name="VisualElement" class="hud-bar-row">
+                <ui:ProgressBar name="HealthBar" value="100" high-value="100" class="hud-bar"/>
+                <ui:Label name="HealthText" text="100 / 100 (100%)" class="bar-text"/>
+            </ui:VisualElement>
+            <ui:VisualElement class="hud-bar-row">
+                <ui:ProgressBar name="ManaBar" value="100" high-value="100" class="hud-bar"/>
+                <ui:Label name="ManaText" text="100 / 100 (100%)" class="bar-text"/>
+            </ui:VisualElement>
+        </ui:VisualElement>
+        <ui:VisualElement name="CrossHair" style="flex-grow: 1;">
+            <ui:Label text="&gt;&lt;" name="CrossHair" language-direction="Inherit" style="top: 50%; left: 50%; right: -490px; bottom: 415px; color: rgb(202, 202, 202); -unity-text-outline-width: 0; width: auto; height: auto;"/>
+        </ui:VisualElement>
+    </ui:VisualElement>
+</ui:UXML>
