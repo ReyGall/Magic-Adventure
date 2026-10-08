@@ -1,7 +1,7 @@
 using MyGame.Damage_interface;
 using MyGame.manaControl;
-using MyGame.SpellShield;
 using MyGame.SpellsCore;
+using MyGame.SpellShield;
 using UnityEngine;
 
 namespace MyGame.SpellZoltraak
