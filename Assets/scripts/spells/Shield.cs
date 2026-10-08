@@ -8,6 +8,8 @@ namespace MyGame.SpellShield
 {
     public class Shield : SpellBase, IDamageable
     {
+        public bool IsActive => _activeShieldInstance != null;
+
         [SerializeField]
         private GameObject _shieldVfxPrefab;
 

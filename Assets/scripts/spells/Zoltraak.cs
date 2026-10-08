@@ -1,6 +1,7 @@
 using MyGame.Damage_interface;
 using MyGame.manaControl;
 using MyGame.SpellsCore;
+using MyGame.SpellShield;
 using UnityEngine;
 
 namespace MyGame.SpellZoltraak
@@ -14,13 +15,10 @@ namespace MyGame.SpellZoltraak
         private Transform _spawnPoint;
 
         [SerializeField]
-        private LayerMask _enemyLayer;
-
-        [SerializeField]
-        private LayerMask _playerLayer;
-
-        [SerializeField]
         private GameObject _vfxPrefab2;
+
+        private const string EnemyTag = "Enemy";
+        private const string PlayerTag = "Player";
 
         [SerializeField]
         private Transform _spawnPoint2;
@@ -151,24 +149,7 @@ namespace MyGame.SpellZoltraak
             vfxInstance2.transform.localScale = vfxScale;
             Destroy(vfxInstance2, 3f);
 
-            LayerMask targetMask = 0;
-            if (gameObject.CompareTag("Player"))
-            {
-                targetMask = _enemyLayer;
-            }
-            else if (gameObject.CompareTag("Enemy"))
-            {
-                targetMask = _playerLayer;
-            }
-            else
-            {
-                targetMask = _enemyLayer;
-            }
-
-            Debug.Log(
-                $"[Zoltraak] owner={gameObject.name}, tag={gameObject.tag}, targetMask={targetMask.value}, enemyLayer={_enemyLayer.value}, playerLayer={_playerLayer.value}, damage={damage}, radius={radius}"
-            );
-
+            LayerMask targetMask = GetTargetMask();
             RaycastHit hit;
             Debug.DrawRay(
                 _spawnPoint2.position,
@@ -188,32 +169,45 @@ namespace MyGame.SpellZoltraak
                 )
             )
             {
-                if (hit.collider != null)
+                if (hit.collider == null)
                 {
-                    Debug.Log(
-                        $"[Zoltraak] Hit {hit.collider.name}, tag={hit.collider.tag}, layer={LayerMask.LayerToName(hit.collider.gameObject.layer)}"
-                    );
+                    return;
+                }
 
-                    IDamageable damageable = hit.collider.GetComponentInParent<IDamageable>();
-                    if (damageable != null)
-                    {
-                        Debug.Log(
-                            $"[Zoltraak] Applying damage {damage} to {damageable.GetType().Name} on {hit.collider.name}"
-                        );
-                        damageable.TakeDamage(damage);
-                    }
-                    else
-                    {
-                        Debug.LogWarning(
-                            $"[Zoltraak] No IDamageable found on parent chain of {hit.collider.name}. Put the DamageManager on the root player/enemy object, not only on a child mesh."
-                        );
-                    }
+                Shield shield = hit.collider.GetComponentInParent<Shield>();
+                if (shield != null && shield.IsActive)
+                {
+                    shield.TakeDamage(damage);
+                    return;
+                }
+
+                IDamageable damageable = hit.collider.GetComponentInParent<IDamageable>();
+                if (damageable != null)
+                {
+                    damageable.TakeDamage(damage);
                 }
             }
-            else
+        }
+
+        private LayerMask GetTargetMask()
+        {
+            if (gameObject.CompareTag(PlayerTag))
             {
-                Debug.Log("[Zoltraak] SphereCast hit nothing with target mask " + targetMask.value);
+                return GetLayerMask(EnemyTag);
             }
+
+            if (gameObject.CompareTag(EnemyTag))
+            {
+                return GetLayerMask(PlayerTag);
+            }
+
+            return GetLayerMask(EnemyTag);
+        }
+
+        private static LayerMask GetLayerMask(string layerName)
+        {
+            int layerIndex = LayerMask.NameToLayer(layerName);
+            return layerIndex >= 0 ? (1 << layerIndex) : 0;
         }
     }
 }
